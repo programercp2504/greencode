@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GreenCode - Code Efficiency & Sustainability Analyzer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-content">
+        <div class="logo">
+          <span class="logo-icon">🌱</span>
+          <span class="logo-text">GreenCode</span>
+        </div>
+        <p class="tagline">Code Efficiency & Sustainability Analyzer</p>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Control Panel -->
+      <section class="control-panel">
+        <div class="control-group">
+          <label for="language-select">Language:</label>
+          <select id="language-select" class="language-select">
+            <option value="javascript">JavaScript</option>
+            <option value="python">Python</option>
+            <option value="java">Java</option>
+            <option value="cpp">C++</option>
+            <option value="csharp">C#</option>
+          </select>
+        </div>
+
+        <div class="button-group">
+          <button id="try-sample-btn" class="btn btn-secondary">
+            <span class="btn-icon">📋</span>
+            Try Sample
+          </button>
+          <button id="analyze-btn" class="btn btn-primary">
+            <span class="btn-icon">⚡</span>
+            Analyze Code
+          </button>
+          <button id="clear-btn" class="btn btn-tertiary">
+            <span class="btn-icon">🗑️</span>
+            Clear
+          </button>
+        </div>
+      </section>
+
+      <!-- Editor Section -->
+      <section class="editor-section">
+        <div class="editor-container">
+          <div class="editor-header">
+            <h3>Code Input</h3>
+            <span class="line-count">Lines: <span id="line-count">0</span></span>
+          </div>
+          <textarea 
+            id="code-input" 
+            class="code-editor" 
+            placeholder="Paste your source code here..."
+            spellcheck="false"
+          ></textarea>
+        </div>
+      </section>
+
+      <!-- Results Section -->
+      <section id="results-section" class="results-section hidden">
+        <!-- Score Visualization -->
+        <div class="score-card">
+          <div class="score-header">
+            <h2>Analysis Results</h2>
+            <p class="disclaimer">These are heuristic estimates, not direct energy or carbon measurements.</p>
+          </div>
+
+          <div class="score-container">
+            <div class="score-display">
+              <div class="score-circle">
+                <svg viewBox="0 0 120 120">
+                  <circle class="score-background" cx="60" cy="60" r="54"></circle>
+                  <circle class="score-progress" cx="60" cy="60" r="54" style="stroke-dashoffset: 0;"></circle>
+                </svg>
+                <div class="score-text">
+                  <span class="score-number" id="score-value">0</span>
+                  <span class="score-label">Efficiency Score</span>
+                </div>
+              </div>
+
+              <div class="metrics-grid">
+                <div class="metric-item">
+                  <span class="metric-label">Optimization Level</span>
+                  <span class="metric-value" id="optimization-level">—</span>
+                </div>
+                <div class="metric-item">
+                  <span class="metric-label">Issues Found</span>
+                  <span class="metric-value" id="issues-count">0</span>
+                </div>
+                <div class="metric-item">
+                  <span class="metric-label">Lines Analyzed</span>
+                  <span class="metric-value" id="lines-analyzed">0</span>
+                </div>
+                <div class="metric-item">
+                  <span class="metric-label">Improvement Potential</span>
+                  <span class="metric-value" id="improvement-potential">0%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Issues List -->
+        <div id="issues-container" class="issues-section hidden">
+          <h3 class="issues-title">🔍 Detected Issues</h3>
+          <div id="issues-list" class="issues-list">
+            <!-- Issues will be populated here -->
+          </div>
+        </div>
+
+        <!-- Before/After Comparison -->
+        <div id="comparison-container" class="comparison-section hidden">
+          <h3 class="comparison-title">📊 Before/After Optimization</h3>
+          <div class="comparison-grid">
+            <div class="comparison-item before">
+              <h4>Before Optimization</h4>
+              <div class="comparison-stats">
+                <div class="stat">
+                  <span class="stat-label">Issues:</span>
+                  <span class="stat-value" id="before-issues">—</span>
+                </div>
+                <div class="stat">
+                  <span class="stat-label">Efficiency:</span>
+                  <span class="stat-value" id="before-efficiency">—</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="comparison-arrow">→</div>
+
+            <div class="comparison-item after">
+              <h4>Potential After Optimization</h4>
+              <div class="comparison-stats">
+                <div class="stat">
+                  <span class="stat-label">Issues:</span>
+                  <span class="stat-value" id="after-issues">—</span>
+                </div>
+                <div class="stat">
+                  <span class="stat-label">Efficiency:</span>
+                  <span class="stat-value" id="after-efficiency">—</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Empty State -->
+      <section id="empty-state" class="empty-state">
+        <div class="empty-state-content">
+          <span class="empty-icon">📝</span>
+          <h2>Ready to analyze your code?</h2>
+          <p>Paste your source code above and click "Analyze Code" to get started.</p>
+          <p class="empty-hint">💡 Try the "Try Sample" button to see an example analysis.</p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>GreenCode v1.0.0 — Heuristic-based Code Efficiency Analyzer</p>
+      <p class="footer-note">Not measuring actual energy consumption or carbon emissions</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
